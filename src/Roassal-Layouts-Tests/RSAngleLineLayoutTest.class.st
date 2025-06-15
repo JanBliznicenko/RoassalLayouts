@@ -5,6 +5,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSAngleLineLayoutTest >> apply [
+
+	RSAngleLineLayout new on: shapes
+]
+
 { #category : 'tests' }
 RSAngleLineLayoutTest >> testBasic [
 

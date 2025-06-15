@@ -5,13 +5,19 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSSugiyamaLayoutTest >> apply [
+
+	self shouldNotImplement
+]
+
 { #category : 'tests' }
 RSSugiyamaLayoutTest >> testBasic [
 	RSSugiyamaLayout on: canvas nodes
 ]
 
 { #category : 'tests' }
-RSSugiyamaLayoutTest >> testOnCycle [
+RSSugiyamaLayoutTest >> testLoop [
 	canvas nodes copy do: #remove.
 	canvas addAll: ((1 to: 3) collect:  [ :each | RSLayoutNode new model: each ]).
 	RSLayoutLineBuilder new

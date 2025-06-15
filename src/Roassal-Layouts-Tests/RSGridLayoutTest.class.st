@@ -5,6 +5,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSGridLayoutTest >> apply [
+
+	RSGridLayout new on: canvas nodes
+]
+
 { #category : 'tests' }
 RSGridLayoutTest >> testBasicCustomizedGapSizeGridLayout [
 

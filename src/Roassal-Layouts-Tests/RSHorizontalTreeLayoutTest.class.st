@@ -5,6 +5,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSHorizontalTreeLayoutTest >> apply [
+
+	RSHorizontalTreeLayout on: canvas nodes
+]
+
 { #category : 'tests' }
 RSHorizontalTreeLayoutTest >> testBasic [
 	RSHorizontalTreeLayout on: canvas nodes.
