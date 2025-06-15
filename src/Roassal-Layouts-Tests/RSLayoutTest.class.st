@@ -1,19 +1,20 @@
 Class {
-	#name : #RSLayoutTest,
-	#superclass : #RSLayoutTestCase,
+	#name : 'RSLayoutTest',
+	#superclass : 'RSLayoutTestCase',
 	#instVars : [
 		'shapes',
 		'canvas'
 	],
-	#category : 'Roassal-Layouts-Tests'
+	#category : 'Roassal-Layouts-Tests',
+	#package : 'Roassal-Layouts-Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 RSLayoutTest class >> isAbstract [
 	^ self ==  RSLayoutTest
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 RSLayoutTest >> setUp [
 	| eb |
 	super setUp.
