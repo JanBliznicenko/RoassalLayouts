@@ -5,35 +5,10 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
-{ #category : 'tests' }
-RSTreeLayoutTest >> computeTreeWithCycles [
-	| chars |
-	canvas := RSLayoutNode new.
-	chars := $a to: $e.
-	shapes := RSLayoutNode models: chars forEach: [ :composite :char |
-		| box label |
-		label := RSLayoutNode text: char.
-		box := RSLayoutNode new
-			position: label position;
-			extent: label extent + 10;
-			yourself.
+{ #category : 'utilities' }
+RSTreeLayoutTest >> apply [
 
-		composite
-			draggable;
-			add: box;
-			add: label;
-			yourself.
-		].
-
-	canvas addAll: shapes.
-	RSLayoutLineBuilder new
-		canvas: canvas;
-		useAssociations:
-			{$a -> $b.
-			$a -> $e.
-			$b -> $c.
-			$c -> $d.
-			$d -> $a}. "cycle"
+	RSTreeLayout on: canvas nodes
 ]
 
 { #category : 'tests' }
@@ -75,7 +50,7 @@ RSTreeLayoutTest >> testBasicWithVerticalGap [
 { #category : 'tests' }
 RSTreeLayoutTest >> testDoNotValidateCyclesLayoutsEachShapeProperly [
 	| groups |
-	self computeTreeWithCycles.
+	self setUpGraphWithCycles.
 	RSTreeLayout new
 		horizontalGap: 10;
 		childrenSortBlock: [ :a :b | a model < b model ];
@@ -87,12 +62,12 @@ RSTreeLayoutTest >> testDoNotValidateCyclesLayoutsEachShapeProperly [
 
 { #category : 'tests' }
 RSTreeLayoutTest >> testDoNotValidateCyclesRunsNormally [
-	self computeTreeWithCycles.
+	self setUpGraphWithCycles.
 	RSTreeLayout new doNotValidateCycles; on: shapes
 ]
 
 { #category : 'tests' }
 RSTreeLayoutTest >> testValidateCyclesRaisesError [
-	self computeTreeWithCycles.
+	self setUpGraphWithCycles.
 	self should: [ RSTreeLayout new validateCycles on: shapes ] raise: Error
 ]

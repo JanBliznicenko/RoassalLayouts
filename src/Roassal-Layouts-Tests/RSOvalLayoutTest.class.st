@@ -5,6 +5,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSOvalLayoutTest >> apply [
+
+	RSOvalLayout on: canvas nodes
+]
+
 { #category : 'tests' }
 RSOvalLayoutTest >> testSimple [
 	RSOvalLayout on: canvas nodes.

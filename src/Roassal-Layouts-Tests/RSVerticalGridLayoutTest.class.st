@@ -5,6 +5,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSVerticalGridLayoutTest >> apply [
+
+	RSVerticalCellLayout on: canvas nodes
+]
+
 { #category : 'tests' }
 RSVerticalGridLayoutTest >> testBasic [
 

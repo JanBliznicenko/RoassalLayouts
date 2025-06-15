@@ -8,6 +8,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSCircularAroundAVertexLayoutTest >> apply [
+
+	RSCircularAroundAVertexLayout new on: canvas nodes
+]
+
 { #category : 'tests' }
 RSCircularAroundAVertexLayoutTest >> testApplyDefaultLayoutOverlapsShapes [
 	| layout first second |

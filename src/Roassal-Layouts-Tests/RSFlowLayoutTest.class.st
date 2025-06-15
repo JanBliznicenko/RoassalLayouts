@@ -5,6 +5,12 @@ Class {
 	#package : 'Roassal-Layouts-Tests'
 }
 
+{ #category : 'utilities' }
+RSFlowLayoutTest >> apply [
+
+	RSFlowLayout new on: shapes
+]
+
 { #category : 'tests' }
 RSFlowLayoutTest >> testLinesEven [
 	| layout lines line n |
