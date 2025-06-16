@@ -7,6 +7,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  workflow_dispatch:
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -16,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        smalltalk: [ pharo9, pharo10, pharo11, pharo12 ]
+        smalltalk: [ pharo9, pharo10, pharo11, pharo12, pharo13, pharo14 ]
         group: [ default ]
         tests: [ Roassal-Layouts ]
         os: [ ubuntu-latest ]
@@ -27,20 +28,20 @@ jobs:
     steps:
         
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.0
+        uses: styfle/cancel-workflow-action@0.12.1
         with:
           access_token: ${{ github.token }}
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # depth 0 will download all the repository history
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
       
       # This will delete roassal and numeric scales and it executes the tests again
       - name: Run pharo Tests
         id: tests
-        uses: akevalion/PharoTestsAction@v1
+        uses: tinchodias/PharoTestsAction@v3
         with:
           removes-repo: 'Roassal, RoassalLayouts, Numeric'
           baseline: 'RoassalLayouts'
