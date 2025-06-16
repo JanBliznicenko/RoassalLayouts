@@ -25,6 +25,6 @@ Load
 ```st
 Metacello new
     baseline: 'RoassalLayouts';
-    repository: 'github://pharo-graphics/RoassalLayouts';
+    repository: 'github://pharo-graphics/RoassalLayouts:Pharo13';
     load.
 ```
